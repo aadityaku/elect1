@@ -8,7 +8,7 @@ from .models import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from django.views import generic
 from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
 from django.utils.encoding import force_bytes,force_text
@@ -107,4 +107,5 @@ def loginFunction(r):
     })
 
 def logout(r):
-    pass
+    logout(r)
+    return redirect("login")
