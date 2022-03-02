@@ -1,0 +1,22 @@
+{% extends 'base.htm' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="display-6 mb-3 text-capitalize">{{question.question_text}}</h1>
+          <div class="">
+            {% for choice in question.choice_set.all  %}
+                <div><p class="d-inline">{{choice.choice_text}}</p> -- <span class="text-success fw-bolder">{{choice.votes}} vote{{choice.votes|pluralize}}</span></div> 
+            {% endfor %}
+        </div>
+
+        <a href="{% url 'details' question.id %}" class="btn btn-warning my-4">Vote Again?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}

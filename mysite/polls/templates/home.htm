@@ -1,0 +1,20 @@
+{% extends 'base.htm' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto mt-4">
+            {% if latest_question_list %}
+            <div class="list-group">
+                {% for question in latest_question_list %}
+                    <a class="list-group-item list-group-item-action" href="/{{question.id}}">{{question.question_text}}</a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No polls are aviable!</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
