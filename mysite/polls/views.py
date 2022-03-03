@@ -106,6 +106,6 @@ def loginFunction(r):
         "userForm": userForm
     })
 
-def logout(r):
+def logoutUser(r):
     logout(r)
     return redirect("login")
